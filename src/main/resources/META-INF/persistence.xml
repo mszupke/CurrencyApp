@@ -1,0 +1,50 @@
+<persistence
+        xmlns="http://java.sun.com/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+        version="2.0">
+
+    <!--
+        Plik persistance.xml konfiguruje conajmniej jedną jednostkę utrwalania
+        Każda jednostka utrwalania musi mieć unikalną nazwę
+    -->
+    <persistence-unit name="productPU">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <properties>
+            <property
+                    name="javax.persistence.jdbc.driver"
+                    value="com.mysql.cj.jdbc.Driver"/>
+            <property
+                    name="javax.persistence.jdbc.url"
+                    value="jdbc:mysql://localhost:3306/currency"/>
+            <property
+                    name="javax.persistence.jdbc.user"
+                    value="currency"/>
+            <property
+                    name="javax.persistence.jdbc.password"
+                    value="Curr3ncy123"/>
+            <!--
+                dialekt wynika z wersji i konkretnego dostawcy bazy danych
+                to jaki dialekt ustawić wynika z dokumentacji konkretnej bazy danych
+            -->
+            <property
+                    name="hibernate.dialect"
+                    value="org.hibernate.dialect.MySQL57Dialect"/>
+
+            <property
+                    name="hibernate.hbm2ddl.auto"
+                    value="create-drop"/>
+
+            <property
+                    name="hibernate.show_sql"
+                    value="true"/>
+
+            <property
+                    name="hibernate.format_sql"
+                    value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
